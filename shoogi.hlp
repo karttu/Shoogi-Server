@@ -1,0 +1,1472 @@
+-     ALL
+
+      This file as well as Shoogi Server itself was written
+      by Antti Karttunen, (e-mail: karttu@megabaud.fi)
+      who will gladly receive any comments.
+
+--    SHOGI RULES
+ 
+      Note: Most of this information is shamelessly copied from
+      John Fairbairn's book "SHOGI FOR BEGINNERS" published by
+      The Shogi Association, Ltd. P.O. Box 77, Bromley, Kent,
+      United Kingdom, First published in Japan by The Ishi Press,
+      Inc., 1984. Third printing September 1987.
+      Some information is also from "SHOGI, JAPAN'S GAME OF STRATEGY",
+      by Trevor Leggett, published by the Charles E. Tuttle Company,
+      Inc. First edition 1966, Seventh printing 1980.
+      (ISBN 0-8048-0526-1.)
+      These are both good books, and I advise you to buy them.
+ 
+---   HISTORY OF SHOGI
+      (Beginners: if you are not interested about the history of Shogi
+      you can skip this section...)
+      (This is introduction from "Shogi, Japan's Game of Strategy".
+      I also added Japanese names for the variants from the Kodansha
+      Encyclopedia of Japan. Macron over the vowel indicates that
+      it's pronounced long. E.g. letter _
+                                        O is pronounced somewhat
+      like 'oo' in the English word 'door'.)
+ 
+        _
+      SHOGI is the Japanese representative of the family of chess
+      games, offshoots of the Indian chatur-anga which was
+      traditionally invented by the legendary Emperor Ravana to
+      excercise his generals in strategy and tactics. Chatur-anga
+      literally means four limbs, and some authorities believe it
+      referred to the four "arms" of the military India: elephants,
+      chariots (or boats), horses, and foot.
+        The name became corrupted to shatranj when it spread
+      westward to Persia, which introduced it to Europe. The chess
+      words "check" and "mate" are from the Persian shah (king)
+      and mat (dead). The traditional elephant remains symbolized
+      by castle, or Rook, because originally the archers shot from
+      a howdah on the back of the elephant. The horse has become
+      a Knight, with the same peculiar move in the Far West and
+      Far East. The foot soldiers are Pawns the world over, usually
+      with the right to advance only in single steps. Their power
+      to capture, however, varies in the different forms of chess.
+        The object of the game is everywhere the same - to capture
+      the leader of the opposing forces, generally by depriving
+      him of most of his men first. In the West this leader is the
+      King, but to the Chinese a second Emperor on a level with
+      the first was inconceivable, and the Chinese game is fought
+      out between two "commanders-in-chief".
+        In the course of time the Chinese made considerable
+      alterations. Instead of the castling maneuver, the commander
+      is provided with a special enclosure which he cannot leave;
+      he has a special bodyguard of two retainers who remain in
+      it with him. An early allusion to the game is supposed to
+      date from about 570 A.D. The Chinese later incorporated an
+      entirely new piece which is like a Rook except that it must
+      jump over another piece and can then capture anything on the
+      line beyond. This piece is called a Cannon, and a
+      twelfth-century text mentions a mock war game in which each
+      side has sixteen men: two Cannons, two Elephants, two Horses,
+      two Chariots, two Knights, one Commander, and five Foot.
+        The game went to Korea and is believed to have entered
+      Japan in different forms about the eighth century. However
+      there is considerable confusion and few reliable records.
+      When it first came to Japan the board was probably already
+      nine squares each way, the pieces totaling 36. The elephants
+      had become Gold and Silver generals.
+        It is thought that Shogi had already divided into two or
+      even more forms by the time it reached Japan. The simplest
+      was begun with the pieces on the back rank, or horizontal
+      row of squares, with the Pawns on the second rank - rather
+      like the Western chess opening position. The game must have
+      been extremely tame because most of the pieces could only
+      move one square at a time. The Japanese courtiers soon
+      livened up the play by introducing (or rather re-introducing)
+      the Rook, the Bishop, and some fresh pieces. At one time no
+      less than six Japanese forms of the game were current:
+                     _   _
+      Little Shogi <shoshogi>, in which one Elephant was restored,
+      and two Leopards, a Flying Chariot (Rook), and a Diagonal
+      Runner (Bishop) were added, making 46 pieces in all;
+                      _  _
+      Middle Shogi <chushogi>, with a board of 12 squares each way
+      and 92 pieces;    _
+      Great Shogi <daishogi>, with a board of 15 squares each way and
+      130 pieces;                 _
+      Great-Great Shogi <daidai shogi>, 17 squares each way and 192
+      pieces;                              _
+      Maka-Great-Great Shogi <makadaidai shogi>, 19 squares each way
+      and 192 pieces. ('Maka' is the Japanese rendering of Sanskrit
+      'Maha', meaning great, so the game is called Great^3 Shogi);
+      Tai-Shogi, a final supreme chess-to-end-all-chess, invented
+      by some recreational megalomaniac with a board 25 squares
+      each way and a total of 354 pieces.
+        The opening set-up of a game of Maka-Great-Great Shogi is
+      like a menagerie. The first rank is presumably human, with its
+      Gold, Silver, Copper, Iron, Stone, and Clay generals, but the
+      next four ranks are a jungle of Furious Dragons, Raging Tigers,
+      Blind Boars, Soaring Phoenixes, Hard-Biting Wolves, Thrashing
+      Serpents, and even the odd Cat and Old Rat. In front of this
+      horde is a single line of 19 stolid Pawns. In the rear is the
+      Commander who might well say like the Duke of Wellington at a
+      march-past, "I don't know what effect they'll have on the
+      enemy, but by Heaven they frighten me!"
+        One would think that the play must have been hopelessly
+      confused; however, we know that this mastodon of a game was
+      actually played. On September 12, 1142 a minister at court
+      recorded in his diary that he played Maka-Great-Great-Shogi
+      in the Imperial presence, adding the pathetic note, "I lost."
+        Towards the end of the sixteenth century a great purge was
+      made, and the game was standardized to a board 9 squares each
+      way and a total of 40 pieces. The reform is traditionally
+      attributed to the Emperor Go-Nara who based it on Little Shogi
+      minus the Elephants and Leopards. This talented Emperor is
+      also supposed to have introduced the revolutionary rule by
+      which a captured piece becomes the property of the capturing
+      side and can be dropped on the board. The rule is the special
+      characteristic of Japanese chess, found in no other game of
+      the family. It gives Shogi a peculiar excitement, which was
+      doubtless necessary to replace the lost thrills of lions and
+      tigers.
+        Shogi was taken up by three great generals of sixteenth-
+      seventeenth-century Japan: Nobunaga, Hideyoshi, and Ieyasu.
+      They esteemed it for its original purpose, namely as an
+      excercise in military strategy and tactics. Ieyasu became
+      sole ruler of Japan, and under his patronage the game was
+      popular with high and low.
+        In the seventeenth century the first championships were
+      held. The second champion, Ohashi, established the rules,
+      including a new rule against the repetition of moves. The
+      championship descended, in the Japanese fashion, in the
+      Ohashi and Ito families. (This does not work out so badly
+      as might be expected because of the Japanese custom of
+      adopting into the family the favorite pupil, to whom
+      certain trade secrets are then imparted.) Early in the
+      twentieth century the granting of the title was formally
+      surrendered to the All-Japan Shogi Association, to be
+      competed for regularly.
+        At present Shogi players are organized in two classes,
+      professionals and amateurs. There is a ranking system under
+      which a beginner enters in the 15th kyu class and works his
+      was down until he becomes 1st kyu. This is a reasonable
+      amateur level. The next step is to 1st dan grade, and then
+      he goes up through the dans. In the 8th dan there are
+      generally some 30-40 masters, with probably fewer in the
+      7th and 6th dan ranks below. Three living masters have
+      attained 9th dan rank (which is fought out among the 8th
+      dans), and they are all also championship holders.
+        Amateurs do well if they get a 1st dan grade certificate
+      from the All-Japan Shogi Association; the top rank ever held
+      by an amateur is 5th dan.
+        Shogi is extremely popular among all classes. There is
+      almost no magazine without a column on it, and the evening
+      editions of the big daily papers feature some current
+      tournament game, giving a few moves and a long commentary.
+      A top Shogi master thus can make a reasonably good living
+      by writing articles and books for the very wide Shogi public
+      and by giving lessons. Some of the masters are striking
+      personalities in their own right and well-known figures on
+      the Japanese scene. For instance former champion Yoshio
+      Kimura, when he retired from tournament play, overnight
+      became a television star noted for his sharp wit.
+
+---   INTRODUCTION
+ 
+      The most important differences from the (western) chess are:
+
+    1. The captured pieces are not removed from a game completely,
+       but instead become the property of the capturing side
+       and can be later dropped on the board, now playing for
+       capturer's side. For this reason all the pieces are of the
+       same color, and only the direction they are pointing to
+       tells which player they are fighting for. (In Shoogi Server
+       uppercase letters are for the Black, and lowercase letters
+       for the White.)
+
+    2. There are some "new" pieces not encountered in chess,
+       although there are also pieces similar to those in chess.
+
+    3. The most pieces can be promoted when they reach the
+       "enemy camp", i.e. the last three ranks of board as seen
+       from a player's viewpoint. In the promotion, the pieces
+       get some extra powers.
+
+    4. The board is larger, 81 squares compared to 64 squares
+       of the chess board.
+
+    Although all the pieces are of the same color in real world
+    (usually white or natural wood), the players and their pieces
+    are still referred as Black and White. Black side plays at
+    "i-rank side" of the board, and White at "a-rank" side. Black
+    moves always first.
+      On his turn a player can either:
+
+       - move one of his pieces on the board, according to its
+         power of move, to a vacant square or to a square occupied
+	 by an enemy piece (in the latter case he captures and
+	 takes the enemy piece to himself); or
+       - "drop" (re-enter) a piece on almost any vacant square.
+
+    However, it's not possible to pass (as in Go), so player must
+    always do something.
+
+      Each player has initially a king, two gold generals, two
+    silver generals, two knights, two lances, a rook, a bishop and
+    nine pawns. These all have different powers of move.
+
+      Player familiar with chess may first think that he hasn't
+    got enough material, as there are only one rook and bishop for
+    each player, no queen, and the remaining pieces are quite
+    restricted in their moves. However, he will soon discover
+    the real potential of those apparently feeble and restricted
+    pieces after some of them have changed owner, and are used as
+    "paratroops", i.e. dropped to play against their former master,
+    often behind the enemy lines.
+      So watch out those pieces in your opponent's hand, as they
+    are the most mobile of the pieces, and can be dropped practically
+    almost anywhere! Especially watch for the situations where your
+    opponent could fork two or more of your pieces by dropping a
+    piece somewhere on the board. (Bishop, knight and silver are
+    the ones most often used for this).
+
+
+---   PIECES
+    
+      There are eight kind of pieces in shogi. Three of them
+    move just like corresponding pieces in chess, two of them
+    move almost like similar pieces in chess, and three are
+    indigenous to shogi.
+     In the move diagrams below "o" indicates where the piece
+    is originally, "|" indicates possible vertical direction,
+    "-" horizontal, and "\" and "/" are for diagonal directions.
+    If there is one of those characters, then it means that
+    the piece can move only one square to the corresponding
+    direction. If there is three characters, then it means that
+    piece can move _any_ number of squares to that direction,
+    as long as it encounters edge of the board or a piece from
+    its own side. (If there is an enemy piece, it can be captured
+    of course, as in chess).
+
+      The pieces are:
+
+----  K, THE KING, OOSHOO, OO, GYOKUSHOO, GYOKU
+
+        \|/
+        -o-
+        /|\
+
+        The king is just like chess king, capable of moving just
+      one step to any direction where there is a vacant square,
+      or one occupied by an enemy piece. So there is max. eight
+      squares where he can move.
+        The king cannot promote.
+
+----  G, THE GOLD GENERAL, KINSHOO, KIN
+
+        \|/
+        -o-
+         |
+
+        The gold general (usually just called gold) can move one
+      square forward in any direction, or one square to the side,
+      or one square straight back. However, it can't move diagonally
+      back.
+        The gold cannot promote; he stays himself wherever he is.
+
+----  S, THE SILVER GENERAL, GINSHOO, GIN
+      
+        \|/
+         o 
+        / \
+
+        The silver general (usually just called silver) can move one
+      square forward in any direction, or one square diagonally back.
+      However, it cannot move to the side, nor straight back.
+      
+----- +S, THE PROMOTED SILVER, NARIGIN
+
+        The promoted silver general moves just like a gold.
+
+----  N, THE KNIGHT, KEIMA, KEI
+
+        \ /
+	 |
+         o
+
+        The knight can move only one of the two squares reached by
+      by going one square straight ahead then one square diagonally
+      forward. So he is almost like chess knight, except that he
+      has only two possible moves, compared to max. eight moves of
+      the chess knight.
+        As in chess, he can jump, so it doesn't matter if there is
+      own or enemy piece between.
+
+----- +N, THE PROMOTED KNIGHT, NARIKEI
+
+        The promoted knight moves just like a gold.
+
+----  L, THE LANCE, KYOOSHA, KYOO
+
+       |
+       |
+       |
+       o
+
+        The lance can move only straight forward but it can move
+      as far as it likes so long as its path is unobstructed; it
+      cannot jump over any friendly or enemy piece.
+      So he is a kind of 'crippled rook', except that he cannot
+      retreat, nor can he move sideways (horizontally).
+      
+----- +L, THE PROMOTED LANCE, NARIKYOO
+
+        The promoted lance moves just like a gold.
+
+----  P, THE PAWN, FUHYOO, FU
+
+       |
+       o
+
+        The pawn can move only one square straight forward, and
+      he also captures in the same way, _not_ diagonally as in chess.
+      (Remember this!) Therefore the pawn cannot be blockaded by
+      an enemy piece - he just takes it.
+        Pawns start out in line on the third rank, and there is
+      no possibility to move two steps initially (as in chess),
+      nor there is anything like en passant.
+
+----- +P, T, THE PROMOTED PAWN, TOKIN
+
+        The promoted pawn moves just like a gold. Many players
+      like to use the Japanese name for the promoted pawn: tokin.
+
+----  R, THE ROOK, HISHA
+
+          |       The rook moves just like its counterpart in western
+          |     chess, i.e. any number of squares along a rank or
+          |     file, horizontally or vertically. Of course he cannot
+       ---o---  jump over any piece, whether friendly or enemy.
+          |
+	  |
+	  |
+
+----- +R, D, THE PROMOTED ROOK, DRAGON, RYUUOO, RYUU
+
+          |       The promoted rook moves like an ordinary, unpromoted
+          |     rook, but can also move one square in any diagonal
+         \|/    direction. (However, only one square, so he is not
+       ---o---  queen). Promoted rook is sometimes called dragon.
+         /|\
+	  |
+	  |
+
+----  B, THE BISHOP, KAKUGYOO, KAKU
+
+       \     /    The bishop moves just like its counterpart in
+        \   /   western chess, i.e. any number of squares diagonally
+         \ /    in one straight line (without jumping).
+          o
+         / \
+	/   \
+       /     \
+
+----- +B, H, THE PROMOTED BISHOP, HORSE, RYUUMA, UMA
+
+       \     /    The promoted bishop moves like an ordinary,
+        \   /    unpromoted bishop, but can also move one square
+         \|/     in the other four directions (vertically or
+         -o-     horizontally).
+         /|\
+	/   \
+       /     \
+
+---   THE BOARD
+
+        The board's size is 9x9 squares, giving 81 squares in all.
+      (So it's about a quarter bigger than chess board with 64
+      squares).
+        The squares in traditional shogi boards are all of the same
+      colour, not alternatively black and white, as in chess. Of
+      course you can use black and white board yourself, to see
+      the diagonal lines of bishop more clearly.
+        A row of squares horizontally across the board is called a
+      rank; a vertical column of squares is a file. So that the
+      games can be recorded by means of a shorthand notation the
+      files are assumed to be numbered 1 to 9, starting at right,
+      and the ranks are ascribed the letter  a to i  from top to
+      bottom, as in the diagram below.
+        Each square can then be distinguished by a cross-reference
+      of the file then rank, as for instance, 3c, 5e or 8h.
+        The reason for beginning the numbering and lettering in
+      the top right-hand corner rather than in the lower left,
+      and using letters for ranks and digits for files, rather
+      than vice-versa (as in the western chess), is to match the
+      Japanese system of notation, which is otherwise similar
+      to this, except that Japanese (kanji) numbers from 1 to 9
+      are used instead of letters a-i to mark the rank.
+
+        The board is considered to be divided into three equal
+      parts as shown below. Black's pieces are all initially on
+      three ranks at his side of board, called "Black's camp",
+      which is also promotion zone for the White (ranks g-i),
+      and similarly, ranks a-c are "White's camp", i.e. promotion
+      zone for black.
+
+        9  8  7  6  5  4  3  2  1
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  :  :  :  :  :  :  : a
+      +--+--+-White's camp-+--+--+
+      :  :  :  :  :  :  :  :  :  : b
+      +-(Black's promotion zone)-+
+      :  :  :  :  :  :  :  :  :  : c
+      +==========================+
+      :  :  :  :  :  :  :  :  :  : d
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  : centre :  :  :  : e
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  :  :  :  :  :  :  : f
+      +==========================+
+      :  :  :  :  :  :  :  :  :  : g
+      +--+--+-Black's camp-+--+--+
+      :  :  :  :  :  :  :  :  :  : h
+      +-(White's promotion zone)-+
+      :  :  :  :  :  :  :  :  :  : i
+      +--+--+--+--+--+--+--+--+--+
+
+
+----  INITIAL SET-UP
+
+        Games between players of disparate strength are generally
+      played with the stronger player removing certain of his
+      pieces (see HELP HANDICAPS), but an even game - a game
+      between players of roughly equal strength - starts with the
+      pieces set up as shown in below. (Blacks pieces are shown
+      in UPPERCASE, White's pieces in lowercase.)
+
+        9  8  7  6  5  4  3  2  1
+      +--+--+--+--+--+--+--+--+--+
+      : l: n: s: g: k: g: s: n: l: a
+      +--+--+--+--+--+--+--+--+--+
+      :  : r:  :  :  :  :  : b:  : b
+      +--+--+--+--+--+--+--+--+--+
+      : p: p: p: p: p: p: p: p: p: c
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  :  :  :  :  :  :  : d
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  :  :  :  :  :  :  : e
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  :  :  :  :  :  :  : f
+      +--+--+--+--+--+--+--+--+--+
+      : P: P: P: P: P: P: P: P: P: g
+      +--+--+--+--+--+--+--+--+--+
+      :  : B:  :  :  :  :  : R:  : h
+      +--+--+--+--+--+--+--+--+--+
+      : L: N: S: G: K: G: S: N: L: i
+      +--+--+--+--+--+--+--+--+--+
+
+
+---   CAPTURES
+
+      No piece can move to a square already occupied by a piece of
+    the same side, but any piece _on the board_ may move in
+    accordance with its power of move to a square occupied by an
+    enemy piece.
+      In doing so it captures the enemy piece, which is at once
+    removed from the board and placed, off the board, to the
+    reserves of the capturing player.
+      Captured pieces (called "pieces in hand") can be re-used
+    on later turns by the person capturing, having changed their
+    color in process, of course.
+
+
+---   PROMOTION
+
+      By making a move wholly or partly within the opponent's
+    camp (that is, your promotion zone, i.e. three last ranks
+    as seen from a viewpoint of player: ranks a-c for the black,
+    and ranks g-i for the white), those pieces on the board
+    that can be promoted (all others except the gold & the king)
+    have the possibility of promoting immediately upon completion
+    of that move. "Wholly or partly within the promotion zone"
+    means that piece
+    a) moves _into_ the promotion zone. (Only the destination
+    square is in the zone.)
+    b) moves _within_ the promotion zone. (Both the source square
+    and the destination square are in the zone.)
+    c) moves _out of_ the promotion zone. (Only the source square
+    in in the zone.)
+      Except in one commonsense case promotion is optional, but
+    if rejected the right of a piece to promote can be earned
+    again on any subsequent move by that piece wholly or partly
+    within the promotion zone.
+      At all times the right to promotion lasts only for that
+    move and every time it is rejected it must be re-earned.
+    It makes no difference whether the move is to a vacant square
+    or is a capture.
+      On the board promotion is shown by turning the piece over
+    as soon as it has earned and accepted the right to promote.
+    (Shoogi Server shows promoted pieces with a "+" in the front
+    of the corresponding letter.) Its new powers of move then apply
+    for all subsequent moves made by that piece in its promoted
+    state.
+      Once a piece is promoted it remains so until it is captured,
+    even if it moves out of the promotion zone. As soon as a piece
+    is captured, however and becomes a piece in hand, it reverts
+    to its unpromoted state. (So it's never possible to drop a
+    already promoted piece!)
+      The king and gold may move freely into or out of the promotion
+    zone but their moves are in no way altered.
+
+      Compulsory promotion
+      
+      If a pawn or lance reaches the end rank in the promotion zone,
+    or if a knight reaches either of the last two ranks there, they
+    must promote at once, otherwise they would have no further legal
+    moves. But if the inability of a piece to move is only temporary
+    it is not obliged to promote.
+      Except in the case mentioned above, the promotion is at all
+    times optional.
+      However, with rook, bishop and pawn, it's nonsensical not to
+    promote them, since they keep all of their original moves, and
+    get a few more. With silver, knight & lance, their original
+    moves might be better in some situations. In mating sequences
+    it often makes a crucial difference whether those three pieces
+    mentioned are promoted or not, so think it twice before you
+    decide it.
+
+---   DROPS
+    
+      A player can re-enter (drop) any of his pieces in hand
+    on almost any vacant square instead of making a move with the
+    pieces on the board.
+      A piece can be dropped only in its unpromoted state, even
+    if it was already promoted when captured. Once on the board,
+    however, it becomes like any other piece there and can earn
+    the right to promotion in the normal way.
+ 
+----  PROHIBITED DROPS
+    
+    The restrictions on drops are as follows:
+      
+    1. A play cannot drop a pawn or lance or knight in a
+    position from which it would _never_ be able to move.
+    The pawns or lances, cannot, therefore, be dropped on
+    the end rank in the promotion zone, nor can knight be
+    dropped on either of the last two ranks there.
+    (But it doesn't matter if dropped piece is temporarily
+    blocked, so for example, you are allowed to drop a lance
+    or pawn behind your own piece.)
+
+    2. A player cannot have two or more _unpromoted_ pawns
+    of his own on the same file at the same time. So you
+    cannot drop pawn onto those files where is already your
+    own, unpromoted pawn. However, if you have _promoted_
+    pawn on that file, then it doesn't matter.
+
+    3. A player may not drop a pawn to give checkmate on that
+    move. I.e. if the opponent's king would be mated by that
+    drop, then the drop is prohibited, and cannot be done.
+      But a pawn drop that merely gives check from which the
+    king can escape, however temporarily, is legal.
+      It is also permissible to mate with a pawn _on the board_,
+    i.e. with an ordinary pawn move.
+
+
+---   THE END OF THE GAME, CHECK, MATE
+
+      The object of the game is to be the first to mate the
+    opponent's king.
+      The king is said to be "in check" when threatened with
+    capture and the check must be countered at once, otherwise
+    the king will be captured next move and that will be the
+    end of the game.
+
+    There is three ways to get out of check:
+
+    1. King can escape to some neighbouring square, possibly eating
+       the enemy square being there. Of course it's not good to
+       move to a square where king would be in check from the same or
+       another enemy piece.
+
+    2. King can capture the checking piece. If it is adjacent to king,
+       then this is same as the case 1.
+
+    3. He can interpose a piece:
+       (a) by moving a piece on the board, or
+       (b) by dropping a piece in hand.
+
+    If the checking piece is adjacent to king, or it is the knight,
+    then the case 3 is not possible, of course.
+
+    If it is doublecheck (i.e. king is threatened by two pieces at
+    the same time), then only the case 1 is possible, unless the
+    other piece is adjacent. If so, then also the case 2 is possible.
+
+    Case 3 is possible only when the offender is lance, rook or
+    bishop, which is not adjacent.
+
+      If, however the king is in check and unable to escape by any
+    of the means above it is said to be checkmated (or mated). No
+    matter what the player does, the king would be captured next
+    move so that checkmate effectively signals the end of the game.
+
+      Checkmate is the sole object of the game. Capturing pieces
+    is not the object, but is only one means to that end. It is
+    not even a specially important means to that end and in this
+    shogi differs markedly from chess.
+
+      A game can end in two ways apart from checkmate:
+      1. One player, seeing that checkmate of his king is
+         inevitable, can resign - that is, concede the game to
+	 his opponent. (See HELP RESIGN).
+      2. By a draw. But draws in shogi are rare. They occur about
+         once in every 100 games. They are dealt with separately
+	 later. (See HELP DRAW).
+      3. By capture of the king. Unlike in chess, playing your own
+         king into check or leaving it in check is not illegal in
+	 shogi, but it may then be captured by the opponent, with
+         the consequent loss of the game by the player whose king
+	 is taken. As this equals suicide it is rarely encountered
+	 in real games.
+
+      Chess players should note that there is no stalemate rule
+    in shogi. There is no need for one.
+ 
+    Note: when you check the opponent's king, or if your own king is
+    checked Shoogi Server will say something like:
+    White's king is checked by 3c.
+    White's king could escape to the square 1c.
+    and will also put these messages to the movelog.
+    However, the escape-square given is not necessarily the only one,
+    or even GOOD one, it is just the first safe square which the
+    algorithm found. So there could be other possibilities, maybe much
+    better, so look for those by yourself!
+    That message is merely for debugging, so that I can see whether
+    the mate-detection procedure works. If you see any inconsistencies
+    in this, please inform me. (Like that Shoogi Server claimed
+    that some square is safe although it's not, or vice versa.)
+ 
+---   DRAWS
+
+      Note for beginners: Draws are so rare in Shogi that you can
+    safely skip these sections...
+ 
+----  REPETITION
+
+      It is possible to have a situation in which the same position
+    occur repeatedly because both players insist on playing the
+    same sequences of moves. If the same position occurs four times
+    in a game, the game is declared no-contest, but continuous
+    checks by one side are not allowed. Indetity of the position
+    refers to a position in which the positions of the pieces on
+    the board, the pieces in hand and the turn to play are all the
+    same.
+      In professional play, when a game is declared no-contest it
+    is usually replayed with colours reversed, but in amateur
+    tournaments it is commonly treated as a draw.
+      If the repetitions occur as a result of repetitive checks
+    (so that one player is forced entirely against his will
+    to repeat moves), the checking player must not create a fourth
+    repetition of position, otherwise he forfeits the game.
+      The Japanese term for repetition of moves, sennichite, is
+    sometime used.
+      There is still no any repetition checking implemented in
+    Shoogi Server, sorry. (So you must see it yourselves, or consult
+    me if that kind of situation occurs.)
+ 
+ 
+----  IMPASSE
+
+      This refers to a case when both players have advanced
+    their kings into the enemy camp (called entering kings) or
+    are in a position to ensure being able to do so, and mate of
+    either king has become impossible. As soon as both players
+    agree, the game ceases and the value of the pieces currently
+    possessed by each player both on the board and in the hand
+    is totalled on the basis that rooks and bishops count 5 points
+    each and all other pieces (except kings, which are ignored)
+    count 1 point. Promotions are disregarded. If a player has
+    total of at least 24 points he cannot lose. If both
+    players have at least 24 points the game is no contest (to
+    be replayed or counted as a draw). If one player has less
+    than 24 points he loses.
+      So long as a king can be mated or pieces can still be
+    captured to the extent of affecting each player's total
+    point score, a player can validly refuse to stop and count
+    up.
+      But there is no rule about what to do if a player refuses
+    to count up simply because he would expect to lose or
+    because he is deluding himself that he can either
+    mate the opposing king or capture more pieces. Even
+    professional players do not always agree first time on when
+    to stop a game in such a case.
+      The guidance given for amateur players (and accepted as a
+    rule by the Shogi Association for the West) is that in such
+    cases of dispute it is sufficient for one player to move all
+    his pieces into the enemy camp so that they are all
+    protected. The game then ends and is counted up.
+      This is very messy rule (and it gets even messier in
+    handicap play) with only one good feature: it has to be
+    applied only very rarely.
+      The Japanese term for impasse, jishogi, is in common use
+    among western players.
+
+---   HANDICAPS
+
+      When two players of disparate strength meet it is usual
+    for the stronger to give his opponent a start by removing
+    some of his own pieces - the handicap. Handicap games are
+    highly satisfactory in shogi and have their own extensive
+    corpus of opening theory. Until the last war even top
+    professionals used handicap against each other and the
+    apprentice professionals still use them. Most games between
+    amateurs are with handicaps except in tournaments.
+      There are several slightly different handicapping systems.
+    The one recommended by the Japanese Shogi Federation is as
+    follows:
+
+    - Where the players have the same grade an even game (no
+      handicaps) is played, first move being decided by some
+      random means. (I.e. who plays black, and who plays white.)
+    - Where there is one grade difference the stronger player
+      takes White and removes his left lance (the lance on 1a).
+    - Where there are two grades difference the stronger player
+      takes White in both games of a two-game match and in the
+      first game removes his left lance only; in the second
+      game he removes his bishop only.
+    - With three grades difference the stronger player takes
+      White and removes his bishop.
+    - With four grades difference the stronger player takes
+      White and removes his rook.
+    - With five grades difference the stronger player takes
+      White and removes his rook and left lance.
+    - With six grades difference the stronger player takes White
+      in both games of a two-game match and in the first game
+      removes his rook and left lance only; in the second
+      games he removes his rook and bishop only.
+    - With seven grades difference the stronger player takes
+      White and removes his rook and bishop. This handicap
+      is usually called two pieces.
+
+      Many clubs prefer to use their own systems but variations
+    exist only in the grade differences used to determine which
+    handicap is to be adopted or in whether the handicaps
+    involving two-game matches are used. Up to two pieces there
+    are now no other handicaps, although until the modern era
+    there was also a right-lance handicap (the lance on 9a was
+    removed and this ranked between an even game and left-lance).
+      Above two pieces there are unofficial, but widely used,
+    handicaps of four pieces (rook, bishop and both lances)
+    and six pieces (rook, bishop, both lances and both knights).
+      Rarely used are handicaps of three pieces (rook, bishop
+    and, usually, right lance), five pieces (rook, bishop, both
+    lances and choice of either right or left knight) and eight
+    pieces (rook, bishop, both lances, both knights and both
+    silvers).
+      It is always White's pieces that are removed by way of
+    handicap and they are taken out of the game completely.
+    They are not held in hand. Removal of the pieces counts as
+    Black's first move, so that in handicap games the first real
+    move on the board is always made by White.
+
+
+---   OPENINGS
+
+      I will not explain here all the finesses of the openings,
+    but give just few general remarks, and couple of helpful
+    hints.
+
+----  CASTLES
+
+      A king left on its original square (called a sitting king)
+    is a sitting duck. It is far better to move the king to one
+    side - always the furthest from its own rook - and surround
+    it with up to three generals (usually one silver and two golds).
+    Doing that constitutes castling.
+      There are many castles (about 40 have names) but the choice
+    is subject largely to the opening adopted. With the openings
+    currently in vogue we see most commonly the castles knows as
+    the Fortress, the Mino, the Boat, the Crab and the
+    Bear-in-the-Hole. Most of these have several variants.
+
+
+----- MINO
+
+        Diagram of the Complete Mino is shown below. Only pieces
+      significant to castle are shown.
+
+        9  8  7  6  5  4  3  2  1
+
+      :  :  :  :  :  :  :  :  :  : e
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  :  :  :  :  :  : P: f
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  :  : P: P: P: P:  : g
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  :  : G:  : S: K:  : h
+      +--+--+--+--+--+--+--+--+--+
+      :  :  :  :  :  : G:  : N: L: i
+      +--+--+--+--+--+--+--+--+--+
+
+        The knight and lance are rarely in any other position but
+      the pawn on 1f, say, could well be at 1g and the pawns on
+      files 3 and 4 could be pushed forward.
+        The Complete Mino is very strong at the side and that is
+      why it is chosen by the Ranging Rook side against a Static
+      Rook. The rooks are the most powerful pieces and fighting
+      tends to centre around or in front of them.
+
+
+----- THE BOAT CASTLE
+
+        Diagram of below shows the Boat castle, the boat being
+      formed by the bishop (an optional piece), the silver on 7i
+      and the golds. The king is in the stern. This castle is
+      adopted by Static Rook against Ranging Rook, the attack coming
+      eventually from the side as in the diagram.
+
+        9  8  7  6  5  4  3  2  1
+
+      :  :  :  :  :  :  :  :  :  : e
+      +--+--+--+--+--+--+--+--+--+
+      : P:  : P:  : P:  :  :  :  : f
+      +--+--+--+--+--+--+--+--+--+
+      :  : P:  : P:  :  :  :  :  : g
+      +--+--+--+--+--+--+--+--+--+
+      :  : B: K:  : G:  :  :  :  : h
+      +--+--+--+--+--+--+--+--+--+
+      : L: N: S: G:  :  :  :  :  : i
+      +--+--+--+--+--+--+--+--+--+
+
+        The Boat castle, like the Mino, is strong at the side.
+      The Mino is not used because the bishop is present on this
+      side.
+
+      (I copy more castle formations from Fairbairn's book when
+      I have time...)
+
+-     COMMANDS, COMMAND-LIST
+
+B, BOARD or REFRESH     Load the game and show the board.
+G or GAMES              List active games.
+?, H or HELP            Show help about specified topic.
+HANDICAP                Remove handicap pieces.
+M or MOVES              List the moves of game.
+N or NEW                List new games needing a player, or start/select one.
+PLAY                    Play your move in current game.
+REMOVE                  Remove a game from a new games list.
+RESIGN                  Resign current game.
+SAY                     Send a message to your opponent in current game.
+SET                     Set various settings.
+!, SHELL or PUSH        Run shell command or escape to shell.
+SHOUT                   Send a message to all players currently online.
+S or STAT               List games in which you are involved.
+STATS or USER           Show information about player.
+TELL                    Send a message to the specified player.
+U or UNDO               Undo your move in current game.
+W or WHO                Show players currently online.
+
+For more information about a command, type "help <command>".
+
+-     ALL COMMANDS
+
+--    LOADING COMMANDS
+
+      There's two commands in this group: BOARD and MOVES.
+      Both can be used to load particular game in.
+
+---   BOARD, REFRESH
+
+      Usage: BOARD [-o] [<gid>]
+      (or B for short).
+
+      Prints board of the game <gid> or of the current game, if
+      <gid> is not specified. The game is loaded in, if it wasn't
+      current game.
+        If -o option is used, then the board is shown from Other
+      player's (or Opponent's) viewpoint.
+
+---   MOVES
+
+      Usage: MOVES [-n] [<gid>]
+      (or M for short).
+
+      List the moves of the game <gid> or of the current game,
+      if <gid> is not specified.
+        If -n option is specified, then moves are printed nonstop,
+      without prompt for more.
+
+      To more prompt you can answer with
+
+      p            - show board from the view of player who is next
+                     to move.
+      o            - show board other way.
+      y or <space> - print next screenful of lines from movelog.
+      <enter>      - print single line more from movelog.
+      q or n       - quit from loop.
+                     Note that you must load the whole game in
+                     (with M -N for instance) if you want to use
+		     playing commands - like play or undo - after
+		     quitting in the middle of movelog.
+
+      Enter HELP NOTATION to see the format of notation.
+
+--    COMMANDS FOR LISTING GAMES
+      
+---   GAMES
+
+      Usage: GAMES, or G for short.
+
+      List active games.
+
+---   STAT
+
+      Usage: STAT, or S for short.
+
+      List games in which you are involved.
+
+---   NEW
+
+      (Or N for short).
+
+      Usage: NEW
+
+      List new game challenges needing a player.
+      
+      Usage: NEW <num>
+
+      Select a challenge number <num> for the playing from the
+      list shown with NEW without arguments.
+
+      Usage: NEW <pattern> <move-notation> [comment text]
+
+      Add a new challenge, so that you are black, and your
+      first move is <move-notation>. Rest of arguments, which are
+      optional, are added as a comment to challenge list.
+      Only players whose name match to pattern are allowed
+      to answer the challenge.
+
+      Usage: NEW W[move-notation] [comment text]
+
+      Like a previous, but you are playing White, and are Waiting
+      for Black to make the first move.
+        However, if there is optional move-notation after W (no
+      spaces between!), then the person who answers this challenge
+      is forced to do that move as his/her first move.
+
+      Enter HELP NOTATION to see the format of the <move-notation>.
+      Enter HELP PATTERNS to see the format of the <pattern>.
+
+      Examples:
+
+            NEW * p-7f
+	    This opens a line for bishop. Because * matches to
+	    everything, all players are allowed to answer.
+
+            NEW ERKKI.EXPERT HANDICAP:L@1a,R@8b
+	    Only ERKKI.EXPERT can answer this, and will play white,
+	    with his rook and left lance removed.
+	    (Use something like this if you feel feeble and want
+	    that more experienced players give you handicap.)
+ 
+	    NEW !NILKKI.NUISANCE r-3h Not for the jerks!
+	    Everybody else _except_ NILKKI.NUISANCE are allowed to
+	    answer.
+
+            NEW BART.BEGINNER WHANDICAP:L@1a
+	    Only BART.BEGINNER can answer this. He will play black
+	    and his first move is forced to be HANDICAP:L@1a, so that
+	    white's (= yours) left lance is removed.
+	    (Use something like this when you want to play white and
+	    want to give some handicap to your opponent.)
+
+---   REMOVE
+
+      Usage: REMOVE <challenge number>
+
+      Remove a challenge from a list of new games. (Shown by NEW).
+      It must be left by you, of course.
+
+
+--    PLAYING COMMANDS
+
+      There's four commands in this group: PLAY, HANDICAP, RESIGN and UNDO.
+      When using these commands, the current game has to be one in
+      which you are involved, and all the moves must be loaded in.
+      You can load the game in with BOARD or MOVES command.
+
+---   PLAY
+
+      Usage: PLAY <move-notation>
+
+      Play your move in the current game. Game has to be your game,
+      and all the moves must be loaded in.
+        The validity of the move is checked, and then you are
+      asked confirmation for the move with the <p,o,n,y> prompt.
+      To that prompt you can answer with
+
+      p - show the board from your view. (As that move had been already made)
+      o - show the board from your opponent's view.
+      n - No, don't make that move.
+      y - Yes, do it.
+
+----  NOTATION
+
+      Notation is adopted from John Fairbairn's book
+      "SHOGI FOR BEGINNERS", and is of the form:
+
+      <[+ if promoted piece] pieceletter> [source coordinates]
+       <movetype> <destination coordinates> [promotion type]
+
+      Where elements shown in brackets [] are optional, and
+      elements shown in angle brackets <> are mandatory.
+
+      Letters for the pieces are:
+
+      K for the King.
+      G for the Gold general.
+      S for the Silver general.   +S for the promoted silver.
+      N for the Knight.           +N for the promoted knight.
+      L for the Lance.            +L for the promoted lance.
+      P for the Pawn.             +P for the promoted pawn.
+      B for the Bishop.           +B or H for the promoted bishop. (H as Horse)
+      R for the Rook.             +R or D for the promoted rook. (D as Dragon)
+
+      Coordinates are of the form <digit><letter> where digit
+      indicates file from 1 to 9, and letter indicates rank
+      from a to i.
+
+      Movetype is - for the ordinary, non-capturing moves,
+      x for the captures, * for the drops, and @ for the
+      handicap removals.
+
+      Promotion type is a = for non-promotion, and + for the
+      promotion. If it's possible to promote a piece, but
+      promotion type is not specified, then it is asked from
+      player, and = or + is concatenated to the end of move
+      notation, depending from answer.
+
+      If movetype is * or @ then it's not possible to specify
+      source coordinates, nor promotion type in the notation.
+
+      Examples:
+
+      P-7f      Pawn is moved to 7f from 7g if it's black, and
+                from 7e if it's white.
+
+      G4a-5b    White's gold is moved from 4a to 5b. Source
+                coordinates have to be specified if there's another
+		gold in 6a.
+
+      Bx2b+     Piece in 2b is captured by black's bishop, and
+                bishop is promoted on the same move.
+
+      N-3g=     White's knight is moved to 3g, but it's not promoted
+                yet.
+
+      R*1d      Rook is dropped to 1d.
+
+      +S5bx4a   Black's promoted silver captures a white's piece in
+                4a. It's source location was 5b.
+
+      L@1a      Lance is removed from 1a. Note that this form
+                should be used only when removing handicap stones.
+                (See HELP HANDICAP)
+ 
+      Note: when you do your move, you must do it with PLAY command,
+      e.g. type  PLAY p-3f  instead of just  p-3f !!!
+ 
+---   HANDICAP
+
+      Usage: HANDICAP piece1[,piece2,...,piecen]
+
+      Remove the handicap pieces.
+
+      For example, HANDICAP L@1a,R@8b removes white's left lance and
+      rook. There should be no blanks between the coordinates, only
+      commas. The above is just a shorthand for PLAY HANDICAP:L@1a,R@8b
+      so it's actually just a special kind of move, which is only
+      allowed as the first move of the game (made by black). Then
+      the first 'real' move is made by white.
+
+
+---   RESIGN
+
+      Usage: RESIGN
+
+      Resign current game, which must be yours, of course.
+      You are asked to confirm this, and if enter anything
+      else than "yes", the resignation is not made.
+      Actually, resignation is just the special type of move,
+      so it's possible to undo it as long as the opponent hasn't
+      seen it.
+
+---   UNDO              
+
+      Usage: UNDO [-o] (or U for short).
+
+      Undo your or your opponent's last move in the current game.
+      Move can also be a handicap move or resignation.
+ 
+      It's possible to undo your own move (UNDO without -o option)
+      only when
+      a) You have played the latest move. (i.e. it's your opponent's
+         turn) and
+      b) Your opponent has not seen it yet.
+
+      However, if your opponent has already seen your move, but
+      hasn't yet made his own, then it's possible for him to undo
+      your move with -o option. (Of course it's upto him whether
+      he has any mercy...) And of course you can also undo your
+      opponent's moves if you think he could have done better.
+      However, if you think that you still want to do that move,
+      although your opponent undid it, then just play the same
+      move again, and then it can't be undone by either one anymore.
+      Also the first move forced with NEW command can't be undone.
+
+--    MESSAGE COMMANDS
+
+---   SAY
+
+      Usage: SAY message text.
+
+      Send a message to your opponent in current game (which must
+      be yours).
+      For example, the command:
+        SAY You will be mated in 5 moves!
+      will send the message "You will be mated in 5 moves!" to your
+      opponent.
+
+---   SHOUT
+
+      Usage: SHOUT message text.
+
+      Send a message to all players currently online
+      (i.e. those who are using Shogi Server).
+
+      For example:
+       SHOUT Good evening!
+
+---   TELL
+
+      Usage: TELL <player.name> message text.
+      Send the message to the specified player.
+
+      or     TELL . message txt.
+      Send the message to the last player you sent a message to.
+
+      For example:
+       TELL ANTTI.KARTTUNEN There's a bug in the command xxx.
+      if you want to tell me about some bug.
+
+        Both SAY and TELL check whether recipient is online, and
+      if that is not case, then it's asked from player whether
+      he wants to leave a message anyway, and if answer is
+      yes, then the message is left to the recipients message
+      file, and he will see it next time he logs into
+      Shogi Server.
+        If you want to send a multiple lines, then you can use
+      SAY or TELL command repeatedly. However, it's better to
+      send longer messages with mail, as it's not possible to
+      correct any errors made with these commands, and as all
+      the messages are deleted immediately after the recipient
+      has seen them first time.
+
+---   .
+
+      Usage:
+
+      . message text
+      (or even .message text, no blank needed after a period.)
+
+      This is just a shorthand for TELL . message text
+
+
+--    USER INFORMATION COMMANDS
+
+---   USER, STATS
+
+      Usage: USER [pattern]
+
+      Show information about those players whose names match to
+      the pattern given. If no pattern is given, then information
+      about the user himself is shown.
+
+      Note: STATS is for compatibility with Internet Chess Server,
+      don't mix it with STAT which is different command.
+
+      E.g:
+
+      USER
+      Show information about yourself.
+
+      USER *
+      Show information about all users.
+
+      USER *NEN
+      Show information about those users whose surnames end with
+      the letters 'NEN'.
+
+      USER FOO.BAR
+      Show information about a player called FOO.BAR
+
+---   WHO
+      
+      Usage: WHO [pattern] (or W for short).
+
+      Show all players currently online, and the time they were logged
+      in. If pattern is given, then show only those players who are
+      online and whose names match to that pattern.
+
+--    SET COMMANDS
+
+---   SET BLACK
+
+      Usage: SET BLACK <attribute-name>
+
+      Set what video attribute is used with black's pieces when
+      the board is output with the BOARD command. Default is NONE.
+      Use SET BLACK ? to see what attributes and colors are available.
+
+---   SET WHITE
+
+      Usage: SET WHITE <attribute-name>
+
+      Set what video attribute is used with white's pieces when
+      the board is output with the BOARD command. Default is NONE.
+      Use SET WHITE ? to see what attributes and colors are available.
+      For example, after the command SET WHITE REV the white's pieces
+      are shown with reverse video.
+
+---   SET THREATENED
+
+      Usage: SET THREATENED <attribute-name>
+
+      Set what video attribute is used with threatened pieces when
+      the board is output with the BOARD command. Default is NONE.
+      I.e. after SET THREATENED U all the pieces (of both sides)
+      which are under the threat by some opponent's piece are
+      shown as underlined. Note that currently this feature doesn't
+      care about checks nor pinnings.
+      Use SET THREATENED ? to see what attributes and colors are
+      available.
+
+      Of course you shouldn't set the same or conflicting attributes
+      for the black's, white's & threatened pieces. I.e., if black's
+      or white's pieces are shown with some color, then don't use
+      color attribute for the threatened pieces, but instead
+      something like underline or reverse, which can be shown
+      together with colors. Or if you don't have colors, then choose
+      none for black, reverse or bold for white and underline for the
+      threatened pieces. Note that not all terminals/computers can
+      show all modes, blink for instance.
+      Note2: COLOURS DON'T WORK WITH THE CURRENT UNIX VERSION!
+      (Curse the curses!)
+ 
+---   SET DRAGON
+
+      Usage: SET DRAGON [OLD | NEW]
+
+      Set how kanji for a 'dragon' (promoted rook) is output.
+      When OLD is specified, then the older form of 'dragon' (ryuu)
+      kanji is used. Default is newer, simplified version of
+      'dragon' kanji, used in Japan.
+      Of course you don't need to care about this command if you
+      are not using a kanji terminal.
+
+      (Well, this must be the most important command of them all...)
+
+---   SET KANJI
+
+      Usage: SET KANJI [1,2,3]
+
+      Set kanji code to be used. 1 is JIS, 2 is EUC (= DEC-Kanji)
+      and 3 is Shift-JIS.
+      If you use 1 your terminal type in Unix must be set to
+      vt102-jis !!!
+
+---   SET PSTYLE
+
+      Usage: SET PSTYLE [0,1,2,3,4] 
+      
+      Set what language is to be used when Shoogi Server refers to
+      pieces by their names.
+
+      0 = English (default)
+      1 = Romaji long  (in ascii)
+      2 = Romaji short (in ascii)
+      3 = Kanji  long
+      4 = Kanji  short
+
+----- PIECE NAMES
+
+    The following table gives English & Japanese names for the
+    pieces. (Beginners: you don't need to care about this, unless
+    you want to use Japanese names!)
+
+    English             Japanese long         Japanese abbreviation
+                        (romaji)              (romaji)
+                                              (literal meaning in English
+                                               is given in parentheses)
+
+    Bishop              Kakugyoo              Kaku
+    Rook                Hisha                 Hisha  ("flying chariot")
+    Pawn                Fuhyoo                Fu 
+    Lance               Kyoosha               Kyoo   ("fragrant chariot")
+    Knight              Keima                 Kei
+    Silver (general)    Ginshoo               Gin
+    Gold (general)      Kinshoo               Kin
+    King                Ooshoo                Oo     ("king" for white's king)
+    King                Gyokushoo             Gyoku  ("jewel" for black's king)
+    Promoted bishop     Ryuuma (Dragon horse) Uma    ("Horse")
+    Promoted rook       Ryuuoo (Dragon king)  Ryuu   ("Dragon")
+    Promoted pawn       Tokin                 Tokin
+    Promoted lance      Narikyoo              Narikyoo ("nari" = "promote(d)")
+    Promoted knight     Narikei               Narikei
+    Promoted silver     Narigin               Narigin
+
+    The "Kodansha Encyclopedia of Japan" tells:
+    "Making one king a 'jewel' (by adding one stroke to the kanji
+    character for 'king') avoided having two kings on the same
+    board, a custom that supposedly originated on the request of
+    an emperor in ancient times. The better player has the king
+    and the other player has the jewel."
+    However, in Shoogi Server black has always the 'gyoku' and
+    white has the 'oo'. Of course you don't need to be concerned
+    with this if you use just the default english/ascii modes for
+    SET BSTYLE and PSTYLE.
+
+    Note: The letter 'y' in romanized Japanese is pronounced like
+    a letter 'j' in Finnish (or as in English word 'young').
+
+---   SET BSTYLE, STYLE
+
+      Usage: SET BSTYLE [0,1,2]
+
+      Set how the board is output.
+
+      0 = Ascii (default). Black's pieces are shown in uppercase and
+          white's pieces in lowercase. Promoted pieces are shown by
+	  prefixing them with a plus sign (+).
+
+      1 = Mixed romaji & kanji, black's pieces are shown with kanji,
+          while white's pieces are printed with romaji. (= latin
+	  letters in big JIS font.)
+          White's promoted pieces are shown by making them uppercase,
+	  except the promoted rook and bishop, which are shown as D
+	  (as Dragon) and H (as Horse). King is always shown as
+	  uppercase K.
+
+      2 = Kanji, black's pieces are shown with kanji, and so are also
+          white's pieces. So to see which ones are white's and
+	  which ones black's pieces, you should also set some
+	  video attributes for the other or both of them. Use
+	  SET BLACK or SET WHITE commands for that.
+	  In this mode, as well with black's pieces in mode 1, the
+	  promoted silver, knight and lance are shown simply as a
+	  gold general (kin).
+
+      STYLE is synonym for compatibility with the ICS.
+      (Internet Chess Server)
+
+      Note that the flags which these SET commands affect are
+      automatically saved to player file when you log out, and
+      will be used next time you log in.
+
+--    MISCELLANEOUS COMMANDS
+
+---   HELP
+
+      Usage: HELP [-n] <topic>
+
+      (H or ? for short).
+
+      Lists information about specified topic.
+
+      HELP [-n] * lists all topics.
+
+        If -n option is specified, then help is printed nonstop,
+      without prompt for more.
+
+      It's enough that topic matches part of the topic specified
+      in help file. E.g. HELP GENERAL matches both to GOLD GENERAL
+      and SILVER GENERAL.
+
+      Examples:
+
+      HELP SHOGI       lists general information about shogi and its rules.
+
+      HELP <piece>     lists how piece moves. You can use the full piece name
+                       or abbreviation. For example: HELP gold  or HELP +B
+
+      HELP COMMAND-LIST gives the brief list of available commands.
+
+      HELP PROHIBITED  lists information about the prohibited drops.
+
+      HELP ALL         lists this whole file. (If you have unix account
+                       you can download this directly from the file
+		       /usr/games/lib/shoogi/shoogi.hlp)
+
+
+---   SHELL, PUSH, !
+
+      Usage: SHELL [command]
+
+      Runs a given command in shell, and then returns to Shoogi Server.
+      If no command is given then the default shell is started.
+      (specified in the environment variable SHELL) Use command exit
+      to return to Shoogi Server.
+      This command can be used only when Shoogi Server is started
+      from Unix, but not from the game door!
+
+      Note: There seems to be some bug which sets terminal settings
+      to some messy state when this command is used second time from
+      Shoogi Server (at least   stty onlcr   is no longer on, so cr's
+      are missing from the end of lines. Curses sucks, IMHO.)
+
+      Examples:
+
+      !
+        Escape to shell.
+      !ls -la
+        Check the contents of the local directory.
+
+--    PATTERNS, PATTERN
+
+      Many commands in Shoogi Server use so called 'patterns',
+      usually for referring to user names. Patterns used in
+      Shoogi Server are somewhat like patterns used with 'DIR'
+      or 'ls' commands in the various operating systems.
+
+      The following characters have special meaning in the patterns:
+
+       !   (When first character). Matches only if the pattern
+           following it didn't matched, or vice versa. (= NOT)
+       ?   Matches one character which can be anything.
+       *   Matches zero or more of any characters.
+
+       <   Start of the "group-expression" which contains some
+           characters and must end in >
+           If first char after < is ^ then its semantics are negated.
+           If first char after < or ^ is > then it's not understood
+	   yet as the end delimiter.
+           Examples:
+
+           <ABC>          Matches any of the letters 'A', 'B' or 'C'.
+           <0123456789>   Matches only to digits.
+           <^0123456789>  Matches any character _except_ digits.
+           <>>            Matches >
+           <^>>           Matches anything except >
+
+      @    Matches character last matched to ? or group-expression.
+           For example ?*@ matches to all strings which begin with
+	   the same character as they end.
+
+      Any other characters match just to themselves.
+
+      Note that unix-like [0-9] (corresponding to <0123456789>) is
+      not implemented yet.
+
+      If pattern doesn't contain any of the above characters
+      (!, *, ?, <, and @), then it matches only to exactly equal
+      strings. (E.g. FOO.BAR matches only to FOO.BAR, but *.BAR
+      matches both to FOO.BAR and FU.BAR)
+      Note that * matches everything. (Use it as synonym for 'ALL').
+      !FOO.BAR matches anything else except FOO.BAR
+
+--
